@@ -1,7 +1,9 @@
 <?php
+//classe qui réalise les requêtes SQL
 
 namespace App\Repository;
 
+//import des dépendances
 use App\Database\Mysql;
 use App\Entity\User;
 
@@ -58,7 +60,11 @@ class UserRepository
             $data = $stmt->fetch(\PDO::FETCH_ASSOC);
             //6 tester si le user existe
             if ($data) {
+<<<<<<< HEAD
                 //6 Hydrater l'objet User
+=======
+                //7 Hydrater l'objet User
+>>>>>>> 97710f52a4521cac5ae16d5d6a35ff839da16354
                 $user = User::hydrate($data);
             }
         } catch (\PDOException $e) {
@@ -67,6 +73,7 @@ class UserRepository
         return $user ?? null;
     }
 
+<<<<<<< HEAD
     // findByEmail
     public function findByEmail(string $email): ?User
     {
@@ -129,6 +136,53 @@ class UserRepository
         }
 
         // 6. Retourner un tableau vide ou le tableau rempli d'objets User
+=======
+    public function findByEmail(string $email): ?User
+    {
+        try {
+            //1 Ecrire la requête
+            $sql = "SELECT u.id, u.firstname, u.lastname, u.email, u.`password` 
+            FROM `user` AS u WHERE u.email = ?";
+            //2 Préparer la requête
+            $stmt = $this->connexion->prepare($sql);
+            //3 Assigner le paramétre email
+            $stmt->bindParam(1, $email, \PDO::PARAM_STR);
+            //4 Exécuter la requête
+            $stmt->execute();
+            //5 Récupérer le resultat
+            $data = $stmt->fetch(\PDO::FETCH_ASSOC);
+            //6 hydrater en Objet user ou null
+            if ($data) {
+                $user = User::hydrate($data);
+            }
+        } catch(\PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+        return $user ?? null;
+    }
+    
+    //findAll
+    public function findAll(): array
+    {
+        $users = [];
+        try {
+            //1 Ecrire la requête SQL
+            $sql = "SELECT u.id, u.firstname, u.lastname, u.email, u.`password` 
+            FROM `user` AS u ORDER BY u.id ASC";
+            //2 Préparer la requête
+            $stmt = $this->connexion->prepare($sql);
+            //3 Exécuter la requête
+            $stmt->execute();
+            //4 Récupérer le résultat
+            $data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            //5 hydrater en objet le résultat
+            foreach ($data as $user) {
+               $users[] = User::hydrate($user);
+            }
+        } catch(\PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+        }
+>>>>>>> 97710f52a4521cac5ae16d5d6a35ff839da16354
         return $users;
     }
     //delete
