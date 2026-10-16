@@ -7,6 +7,13 @@
 <body>
     <main>
         <h1>Hello World</h1>
+                <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/form">Formulaire</a></li>
+            <li><a href="/login">Se connecter</a></li>
+            <li><a href="/register">S'inscrire</a></li>
+            <li><a href="/profil">Profil</a></li>
+        </ul>
         <form action="" method="post">
             <input type="text" name="texte" placeholder="saisir du texte">
             <input type="submit" value="Envoyer" name="submit">
