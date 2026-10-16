@@ -3,7 +3,7 @@
         'name' => 'mithridatem/structure_mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '8a33dd2e3dec919ec9dcb9ffdd69987b93c30527',
+        'reference' => 'c652406123886318ce8679f688150bcd010a742d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'mithridatem/structure_mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '8a33dd2e3dec919ec9dcb9ffdd69987b93c30527',
+            'reference' => 'c652406123886318ce8679f688150bcd010a742d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
