@@ -19,7 +19,7 @@ $exerciceController = new ExerciceController();
 $dotenv = Dotenv\Dotenv::createImmutable('../');
 $dotenv->load();
 
-dd($_ENV);
+//dd($_ENV);
 
 //test des valeurs du path
 switch ($path) {
